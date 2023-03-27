@@ -18,5 +18,12 @@ class CustomerController extends Controller
         ->where("id","=",$id)
         ->delete();
         return redirect('/')->with('success' , 'customer deleted' );
+    } 
+
+    public function edit($id){
+
+        $delete=DB::table("customers")
+        ->where("id","=",$id)
+        ->edit('edit');
     }
 }
