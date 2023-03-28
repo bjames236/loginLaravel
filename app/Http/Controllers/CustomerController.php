@@ -20,10 +20,12 @@ class CustomerController extends Controller
         return redirect('/')->with('success' , 'customer deleted' );
     } 
 
+    public function addCustomer(){
+        return view('customer.add');
+    }
     public function edit($id){
 
-        $delete=DB::table("customers")
-        ->where("id","=",$id)
-        ->edit('edit');
+       $data=Customer::findOrFail($id);
+       return view('customer.edit',['customer'=>$data]);
     }
 }
